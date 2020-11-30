@@ -21,7 +21,7 @@ class IndividualController extends Controller
     public function index()
     {
         // $individuals = Individual::orderBy('created_at', 'desc')->get();
-        $individuals = Individual::all();
+        $individuals = Individual::orderBy('created_at', 'desc')->get();
 
         return view('pages.citizen.individual.index', compact('individuals'));
     }
@@ -31,7 +31,7 @@ class IndividualController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $individuals = Individual::all();
         $professions = Profession::all();
@@ -39,7 +39,7 @@ class IndividualController extends Controller
         $religions = Religion::all();
         $relations = Relation::all();
         $maritals = Marital::all();
-        $family_cards = FamilyCard::all();
+        $family_cards = FamilyCard::findOrFail($id);
 
         return view('pages.citizen.individual.create', compact(
             'individuals',
@@ -62,7 +62,7 @@ class IndividualController extends Controller
     {
         $individuals = Individual::create($request->all());
 
-        return redirect()->route('perseorangan.index');
+        return redirect()->route('kartukeluarga.index');
     }
 
     /**
@@ -128,6 +128,20 @@ class IndividualController extends Controller
     {
         $individuals = Individual::find($id);
         $individuals->delete();
+
+        return redirect()->route('kartukeluarga.index');
+    }
+
+    public function trashed()
+    {
+        $individuals = Individual::onlyTrashed()->get();
+
+        return view('pages.citizen.individual.trashed', compact('individuals'));
+    }
+
+    public function restore($id)
+    {
+        $individuals = Individual::onlyTrashed()->findOrFail($id);
 
         return redirect()->route('perseorangan.index');
     }

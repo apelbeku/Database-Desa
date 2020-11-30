@@ -14,7 +14,7 @@ class FamilyCardController extends Controller
      */
     public function index()
     {
-        $data = FamilyCard::all();
+        $data = FamilyCard::orderBy('created_at', 'desc')->get();
         // dd($data);
 
         return view('pages.citizen.famly.index', compact('data'));
@@ -27,7 +27,7 @@ class FamilyCardController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.citizen.famly.create');
     }
 
     /**
@@ -38,7 +38,10 @@ class FamilyCardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new FamilyCard();
+        $data->create($request->all());
+
+        return redirect()->route('kartukeluarga.index');
     }
 
     /**
@@ -50,6 +53,7 @@ class FamilyCardController extends Controller
     public function show($id)
     {
         $data = FamilyCard::find($id);
+        // dd($data);
 
         return view('pages.citizen.famly.show', [
             'data' => $data
@@ -87,6 +91,24 @@ class FamilyCardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = FamilyCard::find($id);
+        $data->delete();
+
+        return redirect()->route('kartukeluarga.index');
+    }
+
+    public function trashed()
+    {
+        $data = FamilyCard::onlyTrashed()->get();
+
+        return view('pages.citizen.famly.trashed', compact('data'));
+    }
+
+    public function restore($id)
+    {
+        $data = FamilyCard::onlyTrashed()->findOrFail($id);
+        $data->restore();
+
+        return redirect()->route('kartukeluarga.index');
     }
 }

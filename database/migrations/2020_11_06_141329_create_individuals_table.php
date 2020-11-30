@@ -26,6 +26,7 @@ class CreateIndividualsTable extends Migration
             $table->boolean('gender');
             $table->date('date_of_birth');
             $table->boolean('citizenship');
+            $table->string('address');
             $table->string('father');
             $table->string('mother');
             $table->softDeletes();

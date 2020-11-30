@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Relation;
 use App\Models\Religion;
 use Illuminate\Http\Request;
 
@@ -98,7 +99,7 @@ class ReligionController extends Controller
 
     public function trashed()
     {
-        $religions = Religion::onlyTrashed();
+        $religions = Religion::onlyTrashed()->get();
         // dd($religions);
 
         return view('pages.master.religion.trashed', [
@@ -108,7 +109,7 @@ class ReligionController extends Controller
 
     public function restore($id)
     {
-        $religions = Religion::findOrFail($id);
+        $religions = Religion::onlyTrashed()->findOrFail($id);
         $religions->restore();
 
         return redirect()->route('agama.index');

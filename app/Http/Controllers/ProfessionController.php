@@ -98,4 +98,19 @@ class ProfessionController extends Controller
 
         return redirect()->route('pekerjaan.index');
     }
+
+    public function trashed()
+    {
+        $professions = Profession::onlyTrashed()->get();
+
+        return view('pages.master.profession.trashed', compact('professions'));
+    }
+
+    public function restore($id)
+    {
+        $professions = Profession::onlyTrashed()->findOrFail($id);
+        $professions->restore();
+
+        return redirect()->route('pekerjaan.index');
+    }
 }

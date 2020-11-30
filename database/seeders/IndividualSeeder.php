@@ -28,7 +28,7 @@ class IndividualSeeder extends Seeder
         $marital = DB::table('maritals')->count();
         $religion = DB::table('religions')->count();
         $relation = DB::table('relations')->count();
-        $family_card = DB::table('family_cards')->count();  
+        $family_card = DB::table('family_cards')->count(); 
         $this->command->getOutput()->progressStart(100);
 
         for ($i=0; $i < 100; $i++) {
@@ -46,6 +46,7 @@ class IndividualSeeder extends Seeder
                 'gender' => $gender,
                 'date_of_birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'citizenship' => rand(1, 0),
+                'address' => $faker->address(),
                 'father' => $faker->name($gender = 'male'),
                 'mother' => $faker->name($gender = 'female'),
             ]);

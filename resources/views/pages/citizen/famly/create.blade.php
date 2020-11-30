@@ -118,7 +118,7 @@
           </div>
           <div class="content-body">
             <div class="card">
-                <form method="POST" action="{{ route('perseorangan.store') }}">
+                <form method="POST" action="{{ route('kartukeluarga.store') }}">
                     @csrf
                     <div class="card-header">
                       <h4 class="card-title">Tambah</h4>
@@ -126,106 +126,8 @@
                     <div class="card-block">
                       <div class="card-body">
                         <fieldset class="form-group">
-						  <div class="row">
-							  <div class="col-6">
-								<label for="family_card">Nomor Kartu Kerluarga</label>
-								<select class="form-control font-medium-1 select2" name="family_card_id" id="">
-									@foreach ($family_cards as $family)
-										<option value="{{ $family->id }}">{{ $family->number_kk }}</option>
-									@endforeach
-								</select></div>
-							  <div class="col-6">
-								  <label for="nik">Nomer Induk Keluarga</label>
-								  <input type="number" name="nik" class="form-control font-medium-1" id="nik">
-							  </div>
-						  </div>
-
-						  <label for="name" class="pt-1">Nama</label>	
-						  <input type="text" name="name" class="form-control" id="name">
-
-						  <label for="father" class="pt-1">Ayah</label>	
-						  <input type="text" name="father" class="form-control" id="father">
-						  
-						  <label for="mother" class="pt-1">Ibu</label>	
-                          <input type="text" name="mother" class="form-control" id="mother">
-
-						  <div class="row">
-							  <div class="col-6">
-								<label for="religion" class="pt-1">Agama</label>
-								<select class="select2 form-control" name="Religion_id" id="religion">
-									@foreach ($religions as $religion)
-									<option value="{{ $religion->id }}">{{ $religion->name }}</option>
-									@endforeach
-								</select>
-							  </div>
-							  <div class="col-6">
-								<label for="education"class="pt-1">Pendidikan</label>
-								<select class="select2 form-control" name="Education_id" id="education">
-									@foreach ($educations as $education)
-									<option value="{{ $education->id }}">{{ $education->name }}</option>
-									@endforeach
-								</select>
-							  </div>
-
-							  <div class="col-6">
-								<label for="profession" class="pt-1">Pekerjaan</label>
-								<select class="select2 form-control" name="Profession_id" id="profession">
-									@foreach ($professions as $profession)
-									<option value="{{ $profession->id }}">{{ $profession->name }}</option>
-									@endforeach
-								</select>
-							  </div>
-	
-							  <div class="col-6">
-								<label for="marital" class="pt-1">Status Pernikahan</label>
-								<select class="select2 form-control" name="Marital_id" id="marital">
-									@foreach ($maritals as $marital)
-									<option value="{{ $marital->id }}">{{ $marital->name }}</option>
-									@endforeach
-								</select>
-							  </div>
-							  <div class="col-6">
-								<label for="relation" class="pt-1">Hubungan Dalam Keluarga</label>	
-								<select class="select2 form-control" name="Relation_id" id="relation">
-									@foreach ($relations as $relation)
-									<option value="{{ $relation->id }}">{{ $relation->name }}</option>
-									@endforeach
-								</select>
-							  </div>
-	
-							  <div class="col-6">
-								<label for="date_of_birth" class="pt-1">Tanggal lahir</label>	
-								<input type="date" name="date_of_birth" class="form-control" id="date_of_birth">
-							  </div>
-
-							  <div class="col-6">
-								<label class="pt-1">Kewarga Negaraan</label>
-								<div class="input-group px-1">
-								  <div>
-									<label for="wni">Wni</label>
-									<input type="radio" name="citizenship" class="mx-1" id="wni" value="0">
-								  </div>
-								  <div>
-									  <label for="wna">Wna</label>
-									  <input type="radio" name="citizenship" class="mx-1" id="wna" value="1">
-								  </div>
-								</div>
-							  </div>
-
-							  <div class="col-6">
-								<label class="pt-1">Jenis Kelamin</label>
-								<div class="input-group px-1">
-								  <div>
-									  <label for="male">Laki-laki</label>
-									  <input type="radio" name="gender" class="mx-1" id="male" value="1">
-								  </div>
-								  <div>
-									  <label for="female">Perempuan</label>
-									  <input type="radio" name="gender" class="mx-1" id="female" value="0">
-								  </div>
-								</div>
-							  </div>
-						  </div>
+                            <label for="family_card">Nomor Kartu Kerluarga</label>
+                            <input type="number" name="number_kk" class="form-control font-medium-1" id="family_card" required>
                         </fieldset>
                         <button class="btn btn-success btn-sm">Submit</button>
                       </div>

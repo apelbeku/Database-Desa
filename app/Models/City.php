@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Religion extends Model
+class City extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable = [
-        'name'
+
     ];
 
     protected $hidden = [
@@ -21,6 +19,6 @@ class Religion extends Model
 
     public function individual()
     {
-        return $this->hasMany('App\Models\Individual', 'id')->withTrashed();
+        return $this->hasMany('App\Models\Individual');
     }
 }

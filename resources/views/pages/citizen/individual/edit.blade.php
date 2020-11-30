@@ -128,18 +128,19 @@
                         <fieldset class="form-group">
                           <div class="row">
                             <div class="col-6">
-                            <label for="family_card">Nomor Kartu Kerluarga</label>
-                            <select class="form-control font-medium-1 select2" name="family_card_id" id="family_card">
-                              @foreach ($family_cards as $family)
-                                <option value="{{ $family->id }}" {{ $family->id == $individual->family_card_id ? 'selected' : '' }}>{{ $family->number_kk }}</option>
-                              @endforeach
-                            </select>
-                          </div>
-                          <div class="col-6">
-                            <label for="nik">Nomer Induk Keluarga</label>
-                            <input type="number" name="nik" class="form-control" id="nik" value="{{ $individual->nik }}">
-                          </div>
-                        </div>
+                                <label for="family_card">Nomor Kartu Kerluarga</label>
+                                <input type="number" name="number_kk" class="form-control" id="family_card" value="{{ $individual->family_card->number_kk }}">
+                              {{-- <select class="form-control font-medium-1 select2" name="family_card_id" id="family_card">
+                                @foreach ($family_cards as $family)
+                                  <option value="{{ $family->id }}" {{ $family->id == $individual->family_card_id ? 'selected' : '' }}>{{ $family->number_kk }}</option>
+                                @endforeach
+                              </select> --}}
+                            </div>
+                            <div class="col-6">
+                              <label for="nik">Nomer Induk Keluarga</label>
+                              <input type="number" name="nik" class="form-control" id="nik" value="{{ $individual->nik }}">
+                            </div>
+                         </div>
                                       
                         <label for="name">Nama</label>
                         <input type="text" name="name" class="form-control" id="name" value="{{ $individual->name }}">
@@ -229,6 +230,11 @@
                               </div>
                             </div>
                           </div>
+
+                          <label for="address" class="pt-1">Alamat</label>
+                          <fieldset class="form-group">
+                              <textarea class="form-control" id="address" name="address" rows="3">{{ $individual->address }}</textarea>
+                          </fieldset>
                         </fieldset>
                         <button class="btn btn-success btn-sm">Submit</button>
                       </div>

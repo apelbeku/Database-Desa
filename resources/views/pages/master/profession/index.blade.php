@@ -120,36 +120,14 @@
               <div class="row">
                   <div class="col-12">
                       <div class="card">
-                          <div class="card-header">
-                              <h4 class="card-title">Perkerjaan</h4>
-                              {{-- <a class="heading-elements-toggle">
-                                  <i class="la la-ellipsis-v font-medium-3"></i>
-                              </a> --}}
-                              <a href="{{ route('pekerjaan.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
-                              {{-- <div class="heading-elements">
-                                  <ul class="list-inline mb-0">
-                                      <li>
-                                          <a data-action="collapse">
-                                              <i class="ft-minus"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a data-action="reload">
-                                              <i class="ft-rotate-cw"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a data-action="expand">
-                                              <i class="ft-maximize"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a data-action="close">
-                                              <i class="ft-x"></i>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div> --}}
+                          <div class="card-header d-flex justify-content-between">
+                              <div class="">
+                                  <h4 class="card-title">Pekerjaan</h4>
+                              </div>
+                              <div class="w-25 pl-5">
+                                  <a href="{{ route('pekerjaan.trashed') }}" class="btn btn-teal btn-sm">Trashed</a>
+                                  <a href="{{ route('pekerjaan.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                              </div>
                           </div>
                           <div class="card-content collapse show">
                               <div class="card-body">

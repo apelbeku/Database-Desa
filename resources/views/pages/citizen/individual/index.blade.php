@@ -125,7 +125,7 @@
                               {{-- <a class="heading-elements-toggle">
                                   <i class="la la-ellipsis-v font-medium-3"></i>
                               </a> --}}
-                              <a href="{{ route('perseorangan.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                              {{-- <a href="{{ route('perseorangan.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a> --}}
                               {{-- <div class="heading-elements">
                                   <ul class="list-inline mb-0">
                                       <li>

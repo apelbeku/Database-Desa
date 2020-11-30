@@ -120,36 +120,14 @@
               <div class="row">
                   <div class="col-12">
                       <div class="card">
-                          <div class="card-header">
-                              <h4 class="card-title">Perseorangan</h4>
-                              {{-- <a class="heading-elements-toggle">
-                                  <i class="la la-ellipsis-v font-medium-3"></i>
-                              </a> --}}
-                              <a href="{{ route('kartukeluarga.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
-                              {{-- <div class="heading-elements">
-                                  <ul class="list-inline mb-0">
-                                      <li>
-                                          <a data-action="collapse">
-                                              <i class="ft-minus"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a data-action="reload">
-                                              <i class="ft-rotate-cw"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a data-action="expand">
-                                              <i class="ft-maximize"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a data-action="close">
-                                              <i class="ft-x"></i>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div> --}}
+                          <div class="card-header d-flex justify-content-between">
+                              <div class="">
+                                  <h4 class="card-title">Kartu Keluarga</h4>
+                              </div>
+                              <div class="w-25 pl-5">
+                                  <a href="{{ route('perseorangan.trashed') }}" class="btn btn-teal btn-sm">Trashed</a>
+                                  <a href="{{ route('perseorangan-create-anggota', $data->id) }}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                              </div>
                           </div>
                           <div class="card-content collapse show">
                               <div class="card-body">
@@ -158,7 +136,7 @@
                                           <thead>
                                               <tr>
                                                   <th>No</th>
-                                                  <th>Nomer KK</th>
+                                                  <th>Individual</th>
                                                   {{-- <th>Nik</th>
                                                   <th>Pekerjaan</th> --}}
                                                   <th>Action</th>
@@ -166,15 +144,18 @@
                                           </thead>
                                           <tbody>
                                             @php $no = 1; @endphp
-                                            @foreach ($data as $family)
+                                            {{-- @foreach ($data as $family) --}}
+                                            @foreach ($data->individual()->get() as $indi)
+                                                    {{-- {{ $indi->name }} --}}
+                                                {{-- @endforeach --}}
                                                 <tr>
                                                     <th scope="row">{{ $no++ }}</th>
-                                                    {{-- <td>{{ $family->number_kk }}</td> --}}
+                                                    <td>{{ $indi->name }}</td>
                                                     {{-- <td>{{ $family-> }}</td> --}}
                                                     {{-- <td>{{ $family->individual->profession->name }}</td> --}}
                                                     <td>
-                                                        <a class="btn btn-success btn-sm">Details</a>
-                                                        <form class="d-inline" action="{{ route('kartukeluarga.destroy', $family->id) }}" method="POST">
+                                                        <a class="btn btn-success btn-sm" href="{{ route('perseorangan.edit', $indi->id) }}">Details</a>
+                                                        <form class="d-inline" action="{{ route('perseorangan.destroy', $indi->id) }}" method="POST">
                                                             @csrf @method('DELETE')
                                                             <button class="btn btn-warning btn-sm">Delete</button>
                                                         </form>

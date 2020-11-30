@@ -16,15 +16,7 @@
         <div class="content-wrapper-before"></div>
         <div class="content-header row">
         </div>
-        <div class="content-body"><!-- Chart -->
-            <div class="row match-height">
-                <div class="col-12">
-                    <div class="">
-                        <div id="gradient-line-chart1" class="height-250 GradientlineShadow1"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Chart -->
+        <div class="content-body">
             <!-- eCommerce statistic -->
             <div class="row">
                 <div class="col-xl-4 col-lg-6 col-md-12">

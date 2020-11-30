@@ -21,14 +21,8 @@
               <div class="row">
                   <div class="col-12">
                       <div class="card">
-                          <div class="card-header d-flex justify-content-between">
-                              <div class="">
-                                  <h4 class="card-title">Kartu Keluarga</h4>
-                              </div>
-                              <div class="w-25 pl-5">
-                                  <a href="{{ route('kartukeluarga.trashed') }}" class="btn btn-teal btn-sm">Trashed</a>
-                                  <a href="{{ route('kartukeluarga.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
-                              </div>
+                          <div class="card-header">
+                              <h4 class="card-title">Pendidikan</h4>
                           </div>
                           <div class="card-content collapse show">
                               <div class="card-body">
@@ -37,24 +31,20 @@
                                           <thead>
                                               <tr>
                                                   <th>No</th>
-                                                  <th>Nomer KK</th>
+                                                  <th>Pendidikan</th>
                                                   <th>Action</th>
                                               </tr>
                                           </thead>
                                           <tbody>
                                             @php $no = 1; @endphp
-                                            @foreach ($data as $family)
-                                                <tr>
+                                            @foreach ($maritals as $marital)
+                                              <tr>
                                                     <th scope="row">{{ $no++ }}</th>
-                                                    <td>{{ $family->number_kk }}</td>
+                                                    <td>{{ $marital->name }}</td>
                                                     <td>
-                                                        <a class="btn btn-success btn-sm" href="{{ route('kartukeluarga.show', $family->id) }}">Details</a>
-                                                        <form class="d-inline" action="{{ route('kartukeluarga.destroy', $family->id) }}" method="POST">
-                                                            @csrf @method('DELETE')
-                                                            <button class="btn btn-warning btn-sm">Delete</button>
-                                                        </form>
+                                                        <a class="btn btn-warning btn-sm" href="{{ route('pernikahan.restore', $marital->id) }}">Restore</a>
                                                     </td>
-                                                </tr>
+                                              </tr>
                                             @endforeach
                                           </tbody>
                                       </table>
@@ -68,10 +58,6 @@
             </div>
         </div>
     </div>
-{{-- </div>
-</div>
-</div> --}}
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
     @include('layouts.footer')
     @include('layouts.script')
   </body>

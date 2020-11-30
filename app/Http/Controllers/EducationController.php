@@ -95,4 +95,19 @@ class EducationController extends Controller
 
         return redirect()->route('pendidikan.index');
     }
+
+    public function trashed()
+    {
+        $educations = Education::onlyTrashed()->get();
+
+        return view('pages.master.education.trashed', compact('educations'));
+    }
+
+    public function restore($id)
+    {
+        $educations = Education::onlyTrashed()->findOrFail($id);
+        $educations->restore();
+
+        return redirect()->route('pendidikan.index');
+    }
 }

@@ -95,4 +95,21 @@ class MaritalController extends Controller
 
         return redirect()->route('pernikahan.index');
     }
+
+    public function trashed()
+    {
+        $maritals = Marital::onlyTrashed()->get();
+
+        return view('pages.master.marital.trashed', [
+            'maritals' => $maritals
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $maritals = Marital::onlyTrashed()->findOrFail($id);
+        $maritals->restore();
+
+        return redirect()->route('pernikahan.index');
+    }
 }

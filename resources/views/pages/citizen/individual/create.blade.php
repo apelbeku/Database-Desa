@@ -128,12 +128,15 @@
                         <fieldset class="form-group">
 						  <div class="row">
 							  <div class="col-6">
-								<label for="family_card">Nomor Kartu Kerluarga</label>
-								<select class="form-control font-medium-1 select2" name="family_card_id" id="" required>
+								  <label for="family_card">Nomor Kartu Kerluarga</label>
+								  <input type="hidden" name="family_card_id" class="form-control font-medium-1" id="family_card" value="{{ $family_cards->id }}">
+								  <input type="number" class="form-control font-medium-1" id="family_card" value="{{ $family_cards->number_kk }}" required readonly>
+							  </div>
+								{{-- <select class="form-control font-medium-1 select2" name="family_card_id" id="" required>
 									@foreach ($family_cards as $family)
 										<option value="{{ $family->id }}">{{ $family->number_kk }}</option>
 									@endforeach
-								</select></div>
+								</select></div> --}}
 							  <div class="col-6">
 								  <label for="nik">Nomer Induk Keluarga</label>
 								  <input type="number" name="nik" class="form-control font-medium-1" id="nik" required>
@@ -226,6 +229,11 @@
 								</div>
 							  </div>
 						  </div>
+
+                          <label for="address" class="pt-1">Alamat</label>
+                          <fieldset class="form-group">
+                              <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+                          </fieldset>
                         </fieldset>
                         <button class="btn btn-success btn-sm">Submit</button>
                       </div>

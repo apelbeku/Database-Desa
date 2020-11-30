@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Relation;
+use Illuminate\Database\Eloquent\Factories\Relationship;
 use Illuminate\Http\Request;
 
 class RelationController extends Controller
@@ -92,6 +93,23 @@ class RelationController extends Controller
     {
         $relations = Relation::find($id);
         $relations->delete();
+
+        return redirect()->route('hubungan.index');
+    }
+
+    public function trashed()
+    {
+        $relations = Relation::onlyTrashed()->get();
+
+        return view('pages.master.relation.trashed', [
+            'relations' => $relations
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $relations = Relation::onlyTrashed()->findOrFail($id);
+        $relations->restore();
 
         return redirect()->route('hubungan.index');
     }
