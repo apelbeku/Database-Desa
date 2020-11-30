@@ -55,7 +55,7 @@
             </ul>
         </li>
         <li class=" nav-item">
-            <a href="icons.html">
+            <a href="{{ route('pengguna.index') }}">
                 <i class="la la-user"></i>
                 <span class="menu-title" data-i18n="">Pengguna</span>
             </a>

@@ -34,19 +34,22 @@
                     <a class="dropdown-item" href="#">
                       <span class="avatar avatar-online">
                         <img src="/template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar">
-                        <span class="user-name text-bold-700 ml-1">John Doe</span>
+                        <span class="user-name text-bold-700 ml-1">{{ Auth::user()->name }}</span>
                       </span>
                     </a>
                     {{-- <div class="dropdown-divider">
                     </div> --}}
-                      <a class="dropdown-item" href="#">
+                    <div class="dropdown-item">
+                      <button class="btn bg-transparent p-0">
                         <i class="ft-user"></i> Account
-                      </a>
-                    <div class="dropdown-divider">
+                      </button>
+                    </div>
+                      <div class="dropdown-item">
+                        <form action="{{ route('logout') }}" method="POST">
+                          @csrf
+                          <button class="btn bg-transparent p-0"><i class="ft-power"></i>Logout</button>
+                        </form>
                       </div>
-                      <a class="dropdown-item" href="#">
-                        <i class="ft-power"></i> Logout
-                      </a>
                   </div>
                 </div>
               </li>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('layouts.dashboard');
+        $data = User::all();
+        
+        return view('pages.master.user.index', compact('data'));
     }
 
     /**
@@ -23,7 +26,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('pages.auth.login');
+        //
     }
 
     /**
@@ -79,6 +82,9 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::find($id);
+        $data->delete();
+
+        return redirect()->route('pengguna.index');
     }
 }
