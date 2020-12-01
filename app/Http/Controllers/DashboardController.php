@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Education;
+use App\Models\FamilyCard;
+use App\Models\Profession;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +17,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('layouts.dashboard');
+        $users = User::count();
+        $professions = Profession::where('id', 1)->withCount('individual')->first();
+        $educations = Education::where('id', 1)->withCount('individual')->first();
+        $family_cards = FamilyCard::count();
+        $cards_family = FamilyCard::orderBy('created_at', 'desc')->take(7);
+        // dd($professions);
+        
+        return view('layouts.dashboard', compact('users', 'professions', 'educations', 'family_cards', 'cards_family'));
     }
 
     /**
