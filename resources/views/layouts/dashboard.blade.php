@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-12">
+                    <!-- <div class="col-xl-4 col-lg-6 col-md-12">
                         <div class="card pull-up ecom-card-1 bg-white">
                             <div class="card-content ecom-card2 height-180">
                                 <h5 class="text-muted success  position-absolute p-1">Kartu Keluarga</h5>
@@ -74,6 +74,30 @@
                                     </div>
                                     <div class="col align-items-center text-center">
                                         <a href="{{ route('kartukeluarga.index') }}" class="text-success align-self-center" style="font-size:7em;">{{ $family_cards }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Simple Pie Chart -->
+                    <div class="col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Agama</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content collapse show">
+                                <div class="card-body">
+                                        <div class="height-400">
+                                    <canvas id="simple-pie-chart"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -97,5 +121,64 @@
       </div>
     </footer>
     @include('layouts.script')
+    <script src="/template/theme-assets/vendors/js/charts/chart.min.js" type="text/javascript"></script>
+    <script>
+
+        // Pie chart
+        // ------------------------------
+        $(window).on("load", function(){
+
+        //Get the context of the Chart canvas element we want to select
+        var ctx = $("#simple-pie-chart");
+
+        // Chart Options
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            responsiveAnimationDuration:500,
+        };
+
+        // Chart Data
+        var chartData = {
+            labels: ["BUDDHA", "KHONGHUCU", "ISLAM", "PROTESTAN", "KATOLIK", 'HINDU'],
+            datasets: [{
+                label: "My First dataset",
+                data: [
+                        {{ App\Models\individual::whereHas('religion', function($query) {
+                            $query->where('name', '=', 'BUDDHA');
+                        })->count() }},
+                        {{ App\Models\individual::whereHas('religion', function($query) {
+                            $query->where('name', '=', 'KHONGHUCU');
+                        })->count() }},
+                        {{ App\Models\individual::whereHas('religion', function($query) {
+                            $query->where('name', '=', 'ISLAM');
+                        })->count() }},
+                        {{ App\Models\individual::whereHas('religion', function($query) {
+                            $query->where('name', '=', 'PROTESTAN');
+                        })->count() }},
+                        {{ App\Models\individual::whereHas('religion', function($query) {
+                            $query->where('name', '=', 'KATOLIK');
+                        })->count() }},
+                        {{ App\Models\individual::whereHas('religion', function($query) {
+                            $query->where('name', '=', 'HINDU');
+                        })->count() }},
+                    ],
+                backgroundColor: ['#666EE8', '#28D094', '#FF4961','#1E9FF2', '#FF9149', '#AA9149'],
+            }]
+        };
+
+        var config = {
+            type: 'pie',
+
+            // Chart Options
+            options : chartOptions,
+
+            data : chartData
+        };
+
+        // Create the chart
+        var pieSimpleChart = new Chart(ctx, config);
+        });
+    </script>
   </body>
 </html>
