@@ -40,9 +40,9 @@
                     {{-- <div class="dropdown-divider">
                     </div> --}}
                     <div class="dropdown-item">
-                      <button class="btn bg-transparent p-0">
+                      {{-- <button class="btn bg-transparent p-0">
                         <i class="ft-user"></i> Account
-                      </button>
+                      </button> --}}
                     </div>
                       <div class="dropdown-item">
                         <form action="{{ route('logout') }}" method="POST">
