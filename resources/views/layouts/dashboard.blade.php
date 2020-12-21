@@ -22,43 +22,43 @@
                     <div class="col-xl-4 col-lg-6 col-md-12">
                         <div class="card pull-up ecom-card-1 bg-white">
                             <div class="card-content ecom-card2 height-180">
-                                <h5 class="text-muted danger position-absolute p-1">Pengguna</h5>
-                                <div class="row pt-3">
-                                    <div class="col text-center">
-                                        <i class="la la-user-secret text-danger" style="font-size:9em;"></i>
+                                <h5 class="text-muted primary position-absolute p-1">Jumlah Warga</h5>
+                                <div class="row d-flex justify-content-center my-4">
+                                    <div class="col text-center align-items-center">
+                                        <i class="la la-users text-primary" style="font-size:6em;"></i>
                                     </div>
-                                    <div class="col align-items-center text-center">
-                                        <a href="{{ route('pengguna.index') }}" class="text-danger align-self-center" style="font-size:7em;">{{ $users }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-12">
-                        <div class="card pull-up ecom-card-1 bg-white">
-                            <div class="card-content ecom-card2 height-180">
-                                <h5 class="text-muted dark  position-absolute p-1">Perkerjaan</h5>
-                                <div class="row pt-3">
-                                    <div class="col text-center">
-                                        <i class="la la-question text-dark" style="font-size:9em;"></i>
-                                    </div>
-                                    <div class="col align-items-center text-center">
-                                        <a href="{{ route('pekerjaan.index') }}" class="text-dark align-self-center" style="font-size:7em;">{{ $professions->individual_count }}</a>
+                                    <div class="col text-center py-1">
+                                        <a href="{{ route('pengguna.index') }}" class="text-primary align-self-center" style="font-size:3em;">{{ $users }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-12">
+                      <div class="card-content ecom-card2 height-180">
                         <div class="card pull-up ecom-card-1 bg-white">
-                            <div class="card-content ecom-card2 height-180">
-                                <h5 class="text-muted warning  position-absolute p-1">Pendidikan</h5>
-                                <div class="row pt-3">
-                                    <div class="col text-center">
-                                        <i class="la la-home text-warning" style="font-size:9em;"></i>
+                                <h5 class="text-muted success position-absolute p-1">Laki-Laki</h5>
+                                <div class="row d-flex justify-content-center my-4">
+                                    <div class="col text-center align-items-center">
+                                        <i class="la la-male text-success" style="font-size:6em;"></i>
                                     </div>
-                                    <div class="col align-items-center text-center">
-                                        <a href="{{ route('pendidikan.index') }}" class="text-warning align-self-center" style="font-size:7em;">{{ $educations->individual_count }}</a>
+                                    <div class="col text-center py-1">
+                                        <a href="{{ route('pengguna.index') }}" class="text-success align-self-center" style="font-size:3em;">{{ $male }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-12">
+                      <div class="card-content ecom-card2 height-180">
+                        <div class="card pull-up ecom-card-1 bg-white">
+                                <h5 class="text-muted danger position-absolute p-1">Perempuan</h5>
+                                <div class="row d-flex justify-content-center my-4">
+                                    <div class="col text-center align-items-center">
+                                        <i class="la la-female text-danger" style="font-size:6em;"></i>
+                                    </div>
+                                    <div class="col text-center py-1">
+                                        <a href="{{ route('pengguna.index') }}" class="text-danger align-self-center" style="font-size:3em;">{{ $female }}</a>
                                     </div>
                                 </div>
                             </div>

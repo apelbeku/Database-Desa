@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Individual;
 use App\Models\Education;
 use App\Models\FamilyCard;
 use App\Models\Profession;
@@ -17,14 +18,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = User::count();
-        $professions = Profession::where('id', 1)->withCount('individual')->first();
-        $educations = Education::where('id', 1)->withCount('individual')->first();
+        $users = Individual::count();
+        $male = Individual::where('gender', 0)->count();
+        $female = Individual::where('gender', 1)->count();
         $family_cards = FamilyCard::count();
         $cards_family = FamilyCard::orderBy('created_at', 'desc')->take(7);
         // dd($professions);
-        
-        return view('layouts.dashboard', compact('users', 'professions', 'educations', 'family_cards', 'cards_family'));
+
+        return view('layouts.dashboard', compact('users', 'male', 'female', 'family_cards', 'cards_family'));
     }
 
     /**
