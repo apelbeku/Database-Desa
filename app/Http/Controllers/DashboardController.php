@@ -18,14 +18,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        // dd(Individual::first()->age);
+        $individuals = Individual::all();
         $users = Individual::count();
         $male = Individual::where('gender', 0)->count();
         $female = Individual::where('gender', 1)->count();
-        $family_cards = FamilyCard::count();
-        $cards_family = FamilyCard::orderBy('created_at', 'desc')->take(7);
-        // dd($professions);
 
-        return view('layouts.dashboard', compact('users', 'male', 'female', 'family_cards', 'cards_family'));
+        return view('layouts.dashboard', compact('users', 'male', 'female', 'individuals'));
     }
 
     /**

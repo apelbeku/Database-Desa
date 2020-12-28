@@ -33,7 +33,7 @@
                           <div class="card-content collapse show">
                               <div class="card-body">
                                   <div class="table-responsive">
-                                      <table class="table">
+                                      <table id="data" class="table">
                                           <thead>
                                               <tr>
                                                   <th>No</th>
@@ -74,5 +74,10 @@
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     @include('layouts.footer')
     @include('layouts.script')
+    <script>
+        $(document).ready( function () {
+            $('#data').DataTable();
+        });
+    </script>
   </body>
 </html>

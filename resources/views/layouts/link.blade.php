@@ -23,4 +23,6 @@
     <link rel="stylesheet" type="text/css" href="/template/theme-assets/css/pages/dashboard-ecommerce.css">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <!-- END Custom CSS-->

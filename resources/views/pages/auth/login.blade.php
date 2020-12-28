@@ -27,7 +27,6 @@
                       {{-- <label for="Name" class="pt-3">Nama</label> --}}
                       <input type="password" class="form-control mt-2" id="name" name="password" placeholder="PASSWORD">
                       <div class="d-flex justify-content-between mt-2">
-                        <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
                         <button class="btn btn-primary">Login</button>
                       </div>
                     </fieldset>

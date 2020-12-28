@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
   <head>
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> --}}
       @include('layouts.link')
   </head>
   <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
@@ -33,7 +34,7 @@
                           <div class="card-content collapse show">
                               <div class="card-body">
                                   <div class="table-responsive">
-                                      <table class="table">
+                                      <table id="data" class="table">
                                           <thead>
                                               <tr>
                                                   <th>No</th>
@@ -68,8 +69,17 @@
             </div>
         </div>
     </div>
-    
+{{-- </div>
+</div>
+</div> --}}
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
     @include('layouts.footer')
     @include('layouts.script')
+    {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script> --}}
+    <script>
+        $(document).ready( function () {
+            $('#data').DataTable();
+        })
+    </script>
   </body>
 </html>

@@ -20,38 +20,38 @@
             <div class="content-body">
                 <div class="row">
                     <div class="col-xl-4 col-lg-6 col-md-12">
-                        <div class="card pull-up ecom-card-1 bg-white">
-                            <div class="card-content ecom-card2 height-180">
-                                <h5 class="text-muted primary position-absolute p-1">Jumlah Warga</h5>
-                                <div class="row d-flex justify-content-center my-4">
-                                    <div class="col text-center align-items-center">
-                                        <i class="la la-users text-primary" style="font-size:6em;"></i>
-                                    </div>
-                                    <div class="col text-center py-1">
-                                        <a href="{{ route('pengguna.index') }}" class="text-primary align-self-center" style="font-size:3em;">{{ $users }}</a>
-                                    </div>
-                                </div>
+                      <div class="card pull-up ecom-card-1 bg-white">
+                        <div class="card-content ecom-card2 height-180">
+                          <h5 class="text-muted primary position-absolute p-1">Jumlah Warga</h5>
+                          <div class="row d-flex justify-content-center my-4">
+                            <div class="col text-center align-items-center">
+                              <i class="la la-users text-primary" style="font-size:6em;"></i>
                             </div>
+                            <div class="col text-center py-1">
+                              <a href="{{ route('pengguna.index') }}" class="text-primary align-self-center" style="font-size:3em;">{{ $users }}</a>
+                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-12">
-                      <div class="card-content ecom-card2 height-180">
                         <div class="card pull-up ecom-card-1 bg-white">
-                                <h5 class="text-muted success position-absolute p-1">Laki-Laki</h5>
-                                <div class="row d-flex justify-content-center my-4">
-                                    <div class="col text-center align-items-center">
-                                        <i class="la la-male text-success" style="font-size:6em;"></i>
-                                    </div>
-                                    <div class="col text-center py-1">
-                                        <a href="{{ route('pengguna.index') }}" class="text-success align-self-center" style="font-size:3em;">{{ $male }}</a>
-                                    </div>
-                                </div>
+                          <div class="card-content ecom-card2 height-180">
+                          <h5 class="text-muted success position-absolute p-1">Laki-Laki</h5>
+                            <div class="row d-flex justify-content-center my-4">
+                              <div class="col text-center align-items-center">
+                                <i class="la la-male text-success" style="font-size:6em;"></i>
+                              </div>
+                            <div class="col text-center py-1">
+                              <a href="{{ route('pengguna.index') }}" class="text-success align-self-center" style="font-size:3em;">{{ $male }}</a>
                             </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-12">
-                      <div class="card-content ecom-card2 height-180">
                         <div class="card pull-up ecom-card-1 bg-white">
+                          <div class="card-content ecom-card2 height-180">
                                 <h5 class="text-muted danger position-absolute p-1">Perempuan</h5>
                                 <div class="row d-flex justify-content-center my-4">
                                     <div class="col text-center align-items-center">
@@ -64,44 +64,55 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-xl-4 col-lg-6 col-md-12">
-                        <div class="card pull-up ecom-card-1 bg-white">
-                            <div class="card-content ecom-card2 height-180">
-                                <h5 class="text-muted success  position-absolute p-1">Kartu Keluarga</h5>
-                                <div class="row pt-3">
-                                    <div class="col text-center">
-                                        <i class="la la-users text-success" style="font-size:9em;"></i>
-                                    </div>
-                                    <div class="col align-items-center text-center">
-                                        <a href="{{ route('kartukeluarga.index') }}" class="text-success align-self-center" style="font-size:7em;">{{ $family_cards }}</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <!-- Age -->
+                    <div class="col-md-6 col-sm-6">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Umur</h4>
+                          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                          <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                          </div>
                         </div>
-                    </div> -->
-                    <!-- Simple Pie Chart -->
-                    <div class="col-md-12 col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Agama</h4>
-                                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                                <div class="heading-elements">
-                                    <ul class="list-inline mb-0">
-                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                    </ul>
-                                </div>
+                        <div class="card-content collapse show">
+                          <div class="card-body">
+                            <div class="height-400">
+                              <canvas id="simple-pie-chart-1"></canvas>
                             </div>
-                            <div class="card-content collapse show">
-                                <div class="card-body">
-                                        <div class="height-400">
-                                    <canvas id="simple-pie-chart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
                         </div>
+                      </div>
+                    </div>
+
+                    <!-- Religion -->
+                    <div class="col-md-6 col-sm-6">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Agama</h4>
+                          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                          <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="card-content collapse show">
+                          <div class="card-body">
+                            <div class="height-400">
+                              <canvas id="simple-pie-chart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -162,6 +173,55 @@
                         {{ App\Models\individual::whereHas('religion', function($query) {
                             $query->where('name', '=', 'HINDU');
                         })->count() }},
+                    ],
+                backgroundColor: ['#666EE8', '#28D094', '#FF4961','#1E9FF2', '#FF9149', '#AA9149'],
+            }]
+        };
+
+        var config = {
+            type: 'pie',
+
+            // Chart Options
+            options : chartOptions,
+
+            data : chartData
+        };
+
+        // Create the chart
+        var pieSimpleChart = new Chart(ctx, config);
+        });
+
+
+
+
+
+
+        // Pie chart
+        // ------------------------------
+        $(window).on("load", function(){
+
+        //Get the context of the Chart canvas element we want to select
+        var ctx = $("#simple-pie-chart-1");
+
+        // Chart Options
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            responsiveAnimationDuration:500,
+        };
+
+        // Chart Data
+        var chartData = {
+            labels: ["BALITA: 0 - 5", "ANAK-ANAK: 6 - 11", "REMAJA: 12 - 25", "DEWASA: 26 - 45", "LANSIA: 46 - 65", "MANULA: 65 - seterusnya"],
+            datasets: [{
+                label: "My First dataset",
+                data: [
+                        {{ $individuals->whereBetween('age', [0, 5])->count() }},
+                        {{ $individuals->whereBetween('age', [6,11])->count() }},
+                        {{ $individuals->whereBetween('age', [12, 25])->count() }},
+                        {{ $individuals->whereBetween('age', [26, 45])->count() }},
+                        {{ $individuals->whereBetween('age', [46, 65])->count() }},
+                        {{ $individuals->whereBetween('age', [65, 200])->count() }},
                     ],
                 backgroundColor: ['#666EE8', '#28D094', '#FF4961','#1E9FF2', '#FF9149', '#AA9149'],
             }]
